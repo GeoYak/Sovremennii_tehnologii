@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<head>
+    <title>Barbershop</title>
+
+    <link rel="stylesheet" crossorigin="anonymous"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" >
+
+	<script crossorigin="anonymous"
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" >
+	</script>
+</head>
+
+<body>
+    <h2>Service List</h2>
+    <a class="btn btn-primary" href="create">Add New Service</a>
+    <table class="table">
+    <thead>
+        <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Barber_Name</th>
+        <th scope="col">Client_Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for service in services %}
+            <tr>
+                <td>{{ service.id }}</td>
+                <td>{{ service.barber_name }}</td>
+                <td>{{ service.client_name }}</td>
+                <td>{{ service.price }}</td>
+                <td><a href='edit/{{ service.id }}'>Edit</a></td>
+                <td><a href='delete/{{ service.id }}'>Delete</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
